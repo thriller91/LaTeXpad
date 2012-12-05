@@ -2,15 +2,23 @@
 <html>
 
 <head>
-	<script type="text/javascript" src="pdf.js"></script>
-	<script type="text/javascript">
-		PDFJS.workerSrc = 'pdf.js';
-        </script>
-	<script type="text/javascript" src="hello.js"></script>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="etherpad.js"></script>
+  <script type="text/javascript" src="pdf.js"></script>
+  <script type="text/javascript">
+    PDFJS.workerSrc = 'pdf.js';
+  </script>
+  <script type="text/javascript" src="hello.js"></script>
+  <title>The LaTeXpad project</title>
 </head>
 
 <body>
-	<canvas id="the-canvas" style="border:1px solid black;"/>
+  <div id="Pad"></div>
+  <canvas id="pdf-canvas" style="border:2px solid black;"/>
+
+  <script type="text/javascript">
+    $('#Pad').pad({'padId':'LaTeX'});
+  </script>
 </body>
 
 </html>

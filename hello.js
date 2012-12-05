@@ -3,7 +3,7 @@
 //
 // Fetch the PDF document from the URL using promices
 //
-PDFJS.getDocument('Symbols.pdf').then(function(pdf) {
+PDFJS.getDocument('/docs/Bell.pdf').then(function(pdf) {
   // Using promise to fetch the page
   pdf.getPage(1).then(function(page) {
     var scale = 1.5;
@@ -12,7 +12,7 @@ PDFJS.getDocument('Symbols.pdf').then(function(pdf) {
     //
     // Prepare canvas using PDF page dimensions
     //
-    var canvas = document.getElementById('the-canvas');
+    var canvas = document.getElementById('pdf-canvas');
     var context = canvas.getContext('2d');
     canvas.height = viewport.height;
     canvas.width = viewport.width;
