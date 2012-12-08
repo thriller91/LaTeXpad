@@ -1,0 +1,9 @@
+{
+     "name": "LaTeXpad",
+     "description": "A GoogleDocs-like LaTeX live colaborative document editing project",
+     "version": "0.0.1",
+     "dependencies": {
+        "express": "",
+        "socket.io": ""
+     }
+}
