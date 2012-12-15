@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="etherpad.js"></script>
   <script type="text/javascript" src="pdf.js"></script>
   <script type="text/javascript">
@@ -12,20 +11,19 @@
   </script>
   <script type="text/javascript" src="hello.js"></script>
   <script>
-    var socket = io.connect('http://localhost:8080');
-
-    socket.on('connect', function(){
-      $('#date').append('<p>'+ 'date' + '<br>');
-    });
+  $(document).ready(function() {
+    $('#date').append('<p>'+ 'date' + '</p>');
+  });
   </script>
   <title>The LaTeXpad project</title>
 </head>
 
 <body>
   <div id="panel" style="border:2px solid black; margin: 5px;">
-    <p><button id="compile">Compile !</button></p>
-    <div id="date" style="border:2px solid black; margin: 5px;">
-  </div>
+    <form method="post" action="/">
+      <input id="compile" type="submit" value="Compile !">
+    </form>
+    <div id="date" style="border:2px solid black; margin: 5px;"></div>
   </div>
   <div id="Pad" style="border:2px solid black; margin: 5px;"></div>
   <canvas id="pdf-canvas" style="border:2px solid black; margin: 5px;"/>
