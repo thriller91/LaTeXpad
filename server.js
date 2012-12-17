@@ -17,10 +17,10 @@ var exec = require('child_process').exec,
 
 app.post('/', function(req,res) {
   console.log("ORDER!");
-  child = exec('date',
+  child = exec('python2 getTeXfile.py LaTeX',
   function (error, stdout, stderr) {
     console.log('stdout: ' + stdout);
-    res.send(stdout);
+    res.redirect('/');
     if (error !== null) {
       console.log('exec error: ' + error);
     }
