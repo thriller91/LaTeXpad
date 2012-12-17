@@ -9,7 +9,9 @@ This project uses **etherpad-lite** to edit the document in real-time, **TeX Liv
 First of all you need to install node and npm/
 
 Then you have to clone this repository and install some node modules:
-  git clone https://github.com/thriller91/LaTeXpad.git
-  npm install -d
+```bash
+git clone https://github.com/thriller91/LaTeXpad.git
+npm install -d
+```
 You also have to install **PDF.js**
 
