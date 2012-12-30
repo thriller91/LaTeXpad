@@ -2,7 +2,7 @@ var express = require('express'), app = express()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server);
 
-server.listen(8000);
+server.listen(3000);
 
 app.configure(function(){
   app.use(express.static(__dirname + '/'));
@@ -18,7 +18,7 @@ var exec = require('child_process').exec,
 
 app.post('/', function(req,res) {
   console.log("ORDER!");
-  child = exec('python2 getTeXfile.py LaTeX',
+  child = exec('./getTeXfile.py LaTeX',
   function (error, stdout, stderr) {
     console.log('stdout: ' + stdout);
     res.redirect('/');
