@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 '''
@@ -28,4 +28,4 @@ output = codecs.open(texFile, "w", "utf-8")
 output.write(d["data"]["text"])
 output.close()
 
-call(["pdflatex", texFile])
+call(["wget", "-O " + padID + ".pdf", "latex.aslushnikov.com/compile?url=http://latex.supop.fr/docs/" + padID + ".tex"])
