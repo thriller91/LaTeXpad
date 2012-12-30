@@ -3,10 +3,12 @@
 //
 // Fetch the PDF document from the URL using promices
 //
-PDFJS.getDocument('/docs/LaTeX.pdf').then(function(pdf) {
+var url = '/docs/LaTeX.pdf'
+
+PDFJS.getDocument(url).then(function(pdf) {
   // Using promise to fetch the page
   pdf.getPage(1).then(function(page) {
-    var scale = 1.5;
+    var scale = 1;
     var viewport = page.getViewport(scale);
 
     //

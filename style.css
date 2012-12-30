@@ -1,0 +1,17 @@
+#panel, #date, #Pad, #pdf-canvas {
+  border:2px solid black; margin: 5px;
+}
+
+#panel {
+  text-align:center;
+}
+
+#Pad {
+  float: left;
+  width: 48%;
+}
+
+#pdf-canvas {
+  width: 49%;
+}
+

@@ -4,10 +4,25 @@
 <head>
   <meta charset="utf-8" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="etherpad.js"></script>
   <script type="text/javascript" src="pdf.js"></script>
   <script type="text/javascript">
     PDFJS.workerSrc = 'pdf.js';
+  </script>
+  <script>
+    var socket = io.connect('http://localhost:8000');
+
+    socket.on('connect', function(){
+      socket.emit('adduser');
+    });
+
+    socket.on('updateusers', function(data) {
+      $('#users').empty();
+      $('#users').append(data.toString());
+    });
+
+    
   </script>
   <script type="text/javascript" src="hello.js"></script>
   <script>
@@ -15,18 +30,20 @@
     $('#date').append('<p>'+ 'date' + '</p>');
   });
   </script>
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
   <title>The LaTeXpad project</title>
 </head>
 
 <body>
-  <div id="panel" style="border:2px solid black; margin: 5px;">
+  <div id="panel">
     <form method="post" action="/">
       <input id="compile" type="submit" value="Compile !">
     </form>
-    <div id="date" style="border:2px solid black; margin: 5px;"></div>
+    <div id="date"></div>
+    <p>Online users: <span id="users"></span></p>
   </div>
-  <div id="Pad" style="border:2px solid black; margin: 5px;"></div>
-  <canvas id="pdf-canvas" style="border:2px solid black; margin: 5px;"/>
+  <div id="Pad"></div>
+  <canvas id="pdf-canvas" />
 
   <script type="text/javascript">
     $('#Pad').pad({'padId':'LaTeX'});

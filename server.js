@@ -1,7 +1,8 @@
 var express = require('express'), app = express()
-  , server = require('http').createServer(app);
+  , server = require('http').createServer(app)
+  , io = require('socket.io').listen(server);
 
-server.listen(8080);
+server.listen(8000);
 
 app.configure(function(){
   app.use(express.static(__dirname + '/'));
@@ -26,3 +27,21 @@ app.post('/', function(req,res) {
     }
   });
 });
+
+
+var users = 0;
+
+io.sockets.on('connection', function (socket) {
+
+  socket.on('adduser', function(){
+    users += 1;
+    socket.emit('updateusers', users);
+  });
+
+   socket.on('disconnect', function(){
+    users -= 1;
+    socket.emit('updateusers', users);
+  });
+
+});
+
