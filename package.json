@@ -2,8 +2,12 @@
      "name": "LaTeXpad",
      "description": "A GoogleDocs-like LaTeX live colaborative document editing project",
      "version": "0.0.1",
+     "engines": {
+        "node": "0.8.x",
+        "npm":  "1.1.x"
+     },
      "dependencies": {
-        "express": "",
-        "socket.io": ""
+        "express": "3.0.5",
+        "socket.io": "0.9.11"
      }
 }
