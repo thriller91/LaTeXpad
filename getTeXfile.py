@@ -28,4 +28,4 @@ output = codecs.open(texFile, "w", "utf-8")
 output.write(d["data"]["text"])
 output.close()
 
-urllib.urlretrieve("latex.aslushnikov.com/compile?url=http://latex.supop.fr/docs/" + texFile, padID + ".pdf")
+urllib.urlretrieve("latex.aslushnikov.com/compile?url=http://latexpad.herokuapp.com/docs/" + texFile, padID + ".pdf")
