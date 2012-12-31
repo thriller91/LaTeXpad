@@ -2,7 +2,8 @@ var express = require('express'), app = express()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server);
 
-server.listen(3000);
+var port = process.env.PORT || 3000;
+server.listen(port);
 
 app.configure(function(){
   app.use(express.static(__dirname + '/'));
