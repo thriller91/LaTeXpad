@@ -11,7 +11,7 @@
     PDFJS.workerSrc = 'pdf.js';
   </script>
   <script>
-    var socket = io.connect('http://localhost:8000');
+    var socket = io.connect('http://localhost');
 
     socket.on('connect', function(){
       socket.emit('adduser');
