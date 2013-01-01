@@ -5,6 +5,11 @@ var express = require('express'), app = express()
 var port = process.env.PORT || 3000;
 server.listen(port);
 
+io.configure(function () {
+  io.set("transports", ["xhr-polling"]);
+  io.set("polling duration", 10);
+});
+
 app.configure(function(){
   app.use(express.static(__dirname + '/'));
 });
