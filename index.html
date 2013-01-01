@@ -11,6 +11,10 @@
     PDFJS.workerSrc = 'pdf.js';
   </script>
   <script>
+    io.configure(function () { 
+      io.set("transports", ["xhr-polling"]); 
+      io.set("polling duration", 10); 
+    });
     var socket = io.connect('http://localhost');
 
     socket.on('connect', function(){
