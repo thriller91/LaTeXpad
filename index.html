@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="etherpad.js"></script>
   <script type="text/javascript" src="pdf.js"></script>
@@ -29,6 +31,7 @@
   $(document).ready(function() {
     $('#date').append('<p>'+ 'date' + '</p>');
   });
+    $('#Pad').pad({'padId':'LaTeX', 'height': $("#pdf-canvas").height()});
   </script>
   <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
   <title>The LaTeXpad project</title>
@@ -36,6 +39,7 @@
 
 <body>
   <div id="panel">
+    <button> Fit Pad size </button>
     <form method="post" action="/">
       <input id="compile" type="submit" value="Compile !">
     </form>
@@ -46,7 +50,12 @@
   <canvas id="pdf-canvas" />
 
   <script type="text/javascript">
-    $('#Pad').pad({'padId':'LaTeX'});
+    $('#Pad').pad({'padId':'LaTeX', 'height': $("#pdf-canvas").height()});
+    $('#Pad').height($("#pdf-canvas").height())
+    $("button").click(function() {
+      $('#Pad').pad({'padId':'LaTeX', 'height': $("#pdf-canvas").height()});
+      $('#Pad').height($("#pdf-canvas").height())
+    });
   </script>
 </body>
 
