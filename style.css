@@ -2,9 +2,12 @@
   border:2px solid black; margin: 5px;
 }
 
-#panel {
-  text-align:center;
-}
+
+#panel-left, #panel-main, #panel-right{padding: 5px;}
+#panel-left{float: left;}
+#panel-right{text-align: right;}
+#panel-right p{margin: 0;}
+#panel-main{text-align: center;}
 
 #Pad {
   float: left;
